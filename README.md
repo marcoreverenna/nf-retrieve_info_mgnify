@@ -28,6 +28,21 @@ No additional installation steps are required for the workflow itself, as it rel
 Make sure Docker is installed and properly set up, configure your Azure Blob Storage and Azure Batch accounts, and install Nextflow following [Nextflow information guide](https://www.nextflow.io/docs/latest/getstarted.html) if you haven't done it yet.
 Once these prerequisites are in place, you can clone the repository and run the analysis.
 
+The following instructions consider macOS systems.
+### Installing Java
+1. [Download Java](https://www.java.com/en/download/) if it is not already installed in your laptop.
+2. Double click on downloaded `.dmg` file
+3. If the java version in not included between 11 and 21 Nextflow could not work so [download updated version of Java](https://download.oracle.com/java/21/latest/jdk-21_macos-x64_bin.dmg)
+4. Check your Java version with this command `java -version` in your terminal
+### Installing Docker
+1. [Download Docker](https://www.docker.com/products/docker-desktop/) if it is not already installed in your laptop.
+2. Double click on downloaded `.dmg` file
+3. Check your Docker version with this command `docker --version` in your terminal
+### Installing Nextflow
+1. Install Nextflow using this simple command in your terminal `curl -s https://get.nextflow.io | bash`
+2. Move Nextflow in a specific directory `sudo mv nextflow /usr/local/bin`
+3. Check your Nextflow version with this command `nextflow -version` in your terminal
+
 ## Step by step <a name = "step-by-step"></a>
 1. Functions_getInfo_MGnify_studies_analyses.py to retrieve a summary of MGnify studies and analyses for a given biome and data type (amplicon, shotgun metagenomics, metatranscriptomic, or assembly). 
 2. Functions_get_results_from_MGnifystudy.py to obtain abundance and functional tables, as well as other results for a MGnify study.
@@ -46,9 +61,9 @@ The table below provides an overview of the key files and directories in this re
 - [Azure](https://azure.microsoft.com/it-it)
 - [Nextflow](https://www.nextflow.io)
 
-## Authors <a name = "authors"></a
-- [sebastain@dtudk](https://github.com/salayaruano)
+## Authors <a name = "authors"></a>
 - [marcor@dtu.dk](https://github.com/marcoreverenna)
+- [sebastain@dtudk](https://github.com/salayaruano)
 
 ## Acknowledgements <a name = "acknowledgement"></a>
 We would like to extend our heartfelt gratitude to [DTU Biosustain](https://www.biosustain.dtu.dk/) and the Novo Nordisk Foundation 
