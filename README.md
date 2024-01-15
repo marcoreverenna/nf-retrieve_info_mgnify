@@ -20,11 +20,7 @@ Metagenomics pipeline to retrieve info from MGnify using IDs.
 This repository is designed to efficiently fetch and analyze data from MGnify studies, focusing on specific biomes and study types.
 It extends the work initiated by [sayalaruano](https://github.com/sayalaruano) utilizing the MGnify API for effective data retrieval.
 The project leverages Nextflow, an advanced and flexible platform for constructing computational pipelines. Moreover, the workflow is thoughtfully crafted to 
-be compatible with another pipeline developed by [apalleja](https://github.com/sapalleja), highlighting its adaptability and relevance in a variety of research scenarios.
-
-Moreover, the workflow is thoughtfully crafted to be compatible with another pipeline developed by apalleja, highlighting its adaptability and relevance in a 
-variety of research scenarios.
-
+be compatible with another pipeline developed by [apalleja](https://github.com/apalleja), highlighting its adaptability and relevance in a variety of research scenarios.
 
 ## Getting started <a name = "getting-started"></a>
 The following instructions are designed to guide users in extracting information and download FASTQ files considering a list of IDs. Originally, the pipeline was implemented using python scripts from retrieve info from MGnify repository (Sebastian). Presently, it is undergoing a transition to be re-implemented as a [Nextflow](https://nextflow.io) workflow. This update aims to enhance the reproducibility and efficiency of the analysis process.
