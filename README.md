@@ -58,17 +58,19 @@ The table below provides an overview of the key files and directories in this re
 |:----:|-----------------------|
 |[nextflow.config](nextflow.config)|Configuration file which contains a nextflow configuration for running the bioinformatics workflow, including parameters for processing genomic data on Azure cloud service|
 |[nextflow_config_full_draft.txt](nextflow_config_full_draft.txt)|Text file which contains a configuration for nextflow workflow specifying resources requirements for each program used|
+|[Dockerfile](Dockerfile)|Docker file containing the necessary commands to assemble a docker image|
+|[requirements.txt](requirements.txt)|Text file containing all the dependencies to run the analysis|
 
-## References <a name = references"></a>
+## References <a name = "references"></a>
 - [Docker](https://www.docker.com)
-- [Azure](https://azure.microsoft.com/it-it)
+- [Azure](https://azure.microsoft.com)
 - [Nextflow](https://www.nextflow.io)
 
 ## Authors <a name = "authors"></a>
 - [marcor@dtu.dk](https://github.com/marcoreverenna)
 - [sebastain@dtudk](https://github.com/salayaruano)
 
-## Acknowledgements <a name = "acknowledgement"></a>
+## Acknowledgments <a name = "acknowledgments"></a>
 We would like to extend our heartfelt gratitude to [DTU Biosustain](https://www.biosustain.dtu.dk/) and the Novo Nordisk Foundation 
 Center for Biosustainability for providing the essential resources and support that have been 
 fundamental in the development and success of the [DSP (Data Science 
