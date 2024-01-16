@@ -1,5 +1,7 @@
 #!/usr/bin/env nextflow
 
+nextflow.enable.dsl=2
+
 // Define parameters
 params.url_studies = "https://www.ebi.ac.uk/metagenomics/api/v1/studies"
 params.url_analyses = "https://www.ebi.ac.uk/metagenomics/api/v1/analyses"
@@ -10,7 +12,7 @@ params.outputDir = './results'
 // Process for Fetching Studies Data
 process FetchStudiesData {
     output:
-    path 'studies_data.json' into studiesDataChannel
+    path 'studies_data.json'
 
     script:
     """
@@ -21,7 +23,7 @@ process FetchStudiesData {
 // Process for Fetching Analyses Data
 process FetchAnalysesData {
     output:
-    path 'analyses_data.json' into analysesDataChannel
+    path 'analyses_data.json'
 
     script:
     """
@@ -32,10 +34,10 @@ process FetchAnalysesData {
 // Process for Creating Study DataFrame
 process CreateStudyDataFrame {
     input:
-    path studiesData from studiesDataChannel
+    path studiesData
 
     output:
-    path 'studies_df.csv' into studiesDfChannel
+    path 'studies_df.csv'
 
     script:
     """
@@ -46,10 +48,10 @@ process CreateStudyDataFrame {
 // Process for Creating Analysis DataFrame
 process CreateAnalysisDataFrame {
     input:
-    path analysesData from analysesDataChannel
+    path analysesData
 
     output:
-    path 'analyses_df.csv' into analysesDfChannel
+    path 'analyses_df.csv'
 
     script:
     """
@@ -60,8 +62,8 @@ process CreateAnalysisDataFrame {
 // Process for Merging DataFrames and Final Processing
 process MergeAndProcessDataFrames {
     input:
-    path studiesDf from studiesDfChannel
-    path analysesDf from analysesDfChannel
+    path studiesDf 
+    path analysesDf
 
     output:
     path 'final_output.csv'
@@ -73,13 +75,12 @@ process MergeAndProcessDataFrames {
 }
 
 // Define workflow 
-{
-    FetchStudiesData()
-    FetchAnalysesData()
 
-    CreateStudyDataFrame(studiesDataChannel.collect())
-    CreateAnalysisDataFrame(analysesDataChannel.collect())
+workflow {
+    studiesData = FetchStudiesData()
+    analysesData = FetchAnalysesData()
 
-    MergeAndProcessDataFrames(studiesDfChannel.collect(), analysesDfChannel.collect())
+    CreateStudyDataFrame(studiesData)
+    CreateAnalysisDataFrame(analysesData)
 }
 
