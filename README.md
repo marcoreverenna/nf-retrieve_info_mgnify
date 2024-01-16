@@ -14,7 +14,7 @@ Metagenomics pipeline to retrieve info from MGnify using IDs.
 - [Repository structure](#repository-structure) - A layout of the repository's architecture, describing the purpose of each file or directory
 - [References](#references) - Tools used in the project
 - [Authors](#authors) - List of contributors to the project
-- [Acknowledgments](#acknowledgement) - Credits and thanks to those who helped with the project
+- [Acknowledgments](#acknowledgments) - Credits and thanks to those who helped with the project
 
 ## About <a name = "about"></a>
 This repository is designed to efficiently fetch and analyze data from MGnify studies, focusing on specific biomes and study types.
@@ -60,6 +60,7 @@ The table below provides an overview of the key files and directories in this re
 |[nextflow_config_full_draft.txt](nextflow_config_full_draft.txt)|Text file which contains a configuration for nextflow workflow specifying resources requirements for each program used|
 |[Dockerfile](Dockerfile)|Docker file containing the necessary commands to assemble a docker image|
 |[requirements.txt](requirements.txt)|Text file containing all the dependencies to run the analysis|
+|[mgnify_functions.py](mgnify_functions.py)|Python script which contains all the fuctions to retrieve info from MGnify and get FASTQ file to run the second pipeline|
 
 ## References <a name = "references"></a>
 - [Docker](https://www.docker.com)
