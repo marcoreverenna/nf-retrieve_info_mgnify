@@ -14,6 +14,8 @@ __status__ = Dev
 import requests
 import pandas as pd
 import json
+import os
+from ftplib import FTP
 
 def fetch_studies_or_analyses_info(url, params):
     '''Compressed function to retrieve information from MGnify API.'''
