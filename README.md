@@ -53,7 +53,7 @@ This pipeline considers functions from the repository called **Retrieve_info_MGn
 3. `Functions_get_samplesMetadata_from_MGnifystudy.py` to obtain metadata for the samples of a MGnify study
 4. `get_fastq_from_list_ids.py` to obtain FASTQ files from MGnify studies.  
 
-To run this Nextflow script, use the command `nextflow run main.nf --url_studies [STUDIES_URL] --url_analyses [ANALYSES_URL] --biome_name [BIOME_NAME] --experiment_type [EXPERIMENT_TYPE]`.`
+To run this Nextflow script, use the command `nextflow run main.nf --url_studies "https://www.ebi.ac.uk/metagenomics/api/v1/studies" --url_analyses "https://www.ebi.ac.uk/metagenomics/api/v1/analyses" --biome_name "example_biome" --experiment_type "example_experiment"`.
 
 
 ## Repository structure <a name="repository-structure"></a>
