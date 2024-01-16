@@ -47,10 +47,14 @@ The following instructions consider macOS systems.
 3. Check your Nextflow version with this command `nextflow -version` in your terminal
 
 ## Step by step <a name = "step-by-step"></a>
-1. Functions_getInfo_MGnify_studies_analyses.py to retrieve a summary of MGnify studies and analyses for a given biome and data type (amplicon, shotgun metagenomics, metatranscriptomic, or assembly). 
-2. Functions_get_results_from_MGnifystudy.py to obtain abundance and functional tables, as well as other results for a MGnify study.
-3. Functions_get_samplesMetadata_from_MGnifystudy.py to obtain metadata for the samples of a MGnify study
-4. get_fastq_from_list_ids.py to obtain FASTQ files from MGnify studies.  
+This pipeline considers functions from the repository called **Retrieve_info_MGnifyAPI**. Functions has been modified to make them more simple and readable for a workflow. A file named `mgnify_functions.py` contains all the remade functions able to get info from MGnify and also download FASTQ files:
+1. `Functions_getInfo_MGnify_studies_analyses.py` to retrieve a summary of MGnify studies and analyses for a given biome and data type (amplicon, shotgun metagenomics, metatranscriptomic, or assembly). 
+2. `Functions_get_results_from_MGnifystudy.py` to obtain abundance and functional tables, as well as other results for a MGnify study.
+3. `Functions_get_samplesMetadata_from_MGnifystudy.py` to obtain metadata for the samples of a MGnify study
+4. `get_fastq_from_list_ids.py` to obtain FASTQ files from MGnify studies.  
+
+To run this Nextflow script, use the command `nextflow run main.nf --url_studies [STUDIES_URL] --url_analyses [ANALYSES_URL] --biome_name [BIOME_NAME] --experiment_type [EXPERIMENT_TYPE]`.`
+
 
 ## Repository structure <a name="repository-structure"></a>
 The table below provides an overview of the key files and directories in this repository, along with a brief description of each.
