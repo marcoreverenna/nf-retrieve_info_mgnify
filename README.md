@@ -26,6 +26,8 @@ be compatible with another pipeline developed by [apalleja](https://github.com/a
 The following instructions are designed to guide users in extracting information and download FASTQ files considering a list of IDs. Originally, the pipeline was implemented using python scripts from retrieve info from MGnify repository (Sebastian). Presently, it is undergoing a transition to be re-implemented as a [Nextflow](https://nextflow.io) workflow. This update aims to enhance the reproducibility and efficiency of the analysis process.
 
 ## Prerequisites and installing <a name = "prerequisites-and-installing"></a>
+It is recommended to follow these [instructions](https://seqera.io/blog/nextflow-and-azure-batch-part-1-of-2/#about-azure-batch) to run the set the Azure up. Remember to change the name of the container when you run the test workflow otherwise it gives you error. This guide download java and nextflow so it is not necessary to follow the following instructions. 
+
 This workflow is configured to be executed through Docker and Azure Batch, leveraging cloud computing resources and containerized environments.
 No additional installation steps are required for the workflow itself, as it relies on cloud-based resources and Docker containers.
 Make sure Docker is installed and properly set up, configure your Azure Blob Storage and Azure Batch accounts, and install Nextflow following [Nextflow information guide](https://www.nextflow.io/docs/latest/getstarted.html) if you haven't done it yet.
