@@ -26,10 +26,40 @@ be compatible with another pipeline developed by [apalleja](https://github.com/a
 The following instructions are designed to guide users in extracting information and download FASTQ files considering a list of IDs. Originally, the pipeline was implemented using python scripts from retrieve info from MGnify repository (Sebastian). Presently, it is undergoing a transition to be re-implemented as a [Nextflow](https://nextflow.io) workflow. This update aims to enhance the reproducibility and efficiency of the analysis process.
 
 ## Prerequisites and installing <a name = "prerequisites-and-installing"></a>
-It is recommended to follow these [instructions](https://seqera.io/blog/nextflow-and-azure-batch-part-1-of-2/#about-azure-batch) to run the set the Azure up. Remember to change the name of the container when you run the test workflow otherwise it gives you error. This guide download java and nextflow so it is not necessary to follow the following instructions. 
 
-This workflow is configured to be executed through Docker and Azure Batch, leveraging cloud computing resources and containerized environments.
-No additional installation steps are required for the workflow itself, as it relies on cloud-based resources and Docker containers.
+### Azure setting
+This workflow is configured to be executed through Azure Batch and Docker, leveraging cloud computing resources and containerized environments.
+It is recommended to follow these [instructions](https://seqera.io/blog/nextflow-and-azure-batch-part-1-of-2/#about-azure-batch) to set Azure up.
+Remember also to change the name of the container which is not specified in this guide. This guide download Java and Nextflow so it is not necessary to follow the following instructions.
+Going through steps:
+1. Generating a batch account
+2. Generating a storage account
+3. Generating a container (the concept of container in Azure is different from Docker)
+4. [Generating a Virtual Machine](https://portal.azure.com/#create/Microsoft.VirtualMachine-ARM)
+
+### Connecting with GitHub
+Using the SSH protocol, you can connect and authenticate to remote servers. For more details please have a look at this [page](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh).
+Going through steps:
+1. [Generating a new SSH key and adding it to the ssh-agent](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+2. [Checking for existing SSH keys](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+3. [Adding a new SSH key to your GitHub account](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account)
+4. [About commit signature verification](https://docs.github.com/en/authentication/managing-commit-signature-verification/about-commit-signature-verification)
+
+If you get this message [error-permission-denied-publickey](https://docs.github.com/en/authentication/troubleshooting-ssh/error-permission-denied-publickey):
+1. Copy and paste your private key in VM
+2. Modifing the permissions: `chmod 600 ~/.ssh/id_rsa`
+3. Adding your private key and entering your passphrase: `ssh-add ~/path/id_rsa`
+
+### Upload samples through Azure Blob Storage
+
+Once you have completed all these steps you can try to clone a repository from GitHub.
+
+**Uploading samples into the VM**
+1. Using SCP command
+2. Using an Azure container: `azureuser@marcorVM:~/test-meta$ azcopy copy 'https://[profile].blob.core.windows.net/metanfnewsample/ERR9777403?sp=rwd&st=2024-01-23T12:54:38Z&se=2024-01-23T20:54:38Z&sv=2022-11-02&sr=b&sig=yebbX8kGGVBwSJCSMuGmVtF1IYFs8TzTkeRMVbYzO4A%3D´ "path/"
+
+---
+
 Make sure Docker is installed and properly set up, configure your Azure Blob Storage and Azure Batch accounts, and install Nextflow following [Nextflow information guide](https://www.nextflow.io/docs/latest/getstarted.html) if you haven't done it yet.
 Once these prerequisites are in place, you can clone the repository and run the analysis.
 
