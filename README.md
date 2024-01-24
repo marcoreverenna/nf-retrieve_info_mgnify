@@ -50,13 +50,14 @@ If you get this message [error-permission-denied-publickey](https://docs.github.
 2. Modifing the permissions: `chmod 600 ~/.ssh/id_rsa`
 3. Adding your private key and entering your passphrase: `ssh-add ~/path/id_rsa`
 
-### Upload samples through Azure Blob Storage
-
 Once you have completed all these steps you can try to clone a repository from GitHub.
+
+### Upload samples into the VM
 
 **Uploading samples into the VM**
 1. Using SCP command
-2. Using an Azure container: `azureuser@marcorVM:~/test-meta$ azcopy copy 'https://[profile].blob.core.windows.net/metanfnewsample/ERR9777403?sp=rwd&st=2024-01-23T12:54:38Z&se=2024-01-23T20:54:38Z&sv=2022-11-02&sr=b&sig=yebbX8kGGVBwSJCSMuGmVtF1IYFs8TzTkeRMVbYzO4A%3D´ "path/"
+2. Using `azcopy` command: follow this [guide](https://learn.microsoft.com/en-us/azure/storage/common/storage-use-azcopy-v10); this should be the command: `azureuser@marcorVM:~/test-meta$ azcopy copy 'https://[profile].blob.core.windows.net/metanfnewsample/ERR9777403?sp=rwd&st=2024-01-23T12:54:38Z&se=2024-01-23T20:54:38Z&sv=2022-11-02&sr=b&sig=yebbX8kGGVBwSJCSMuGmVtF1IYFs8TzTkeRMVbYzO4A%3D´ "path/"` 
+3. Using Azure Blob Storage
 
 ---
 
